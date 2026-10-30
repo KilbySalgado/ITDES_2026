@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#071d4d">
+    <meta name="description"
+        content="Conoce la oferta académica y los talleres vocacionales del Instituto Técnico Departamental Espíritu del Siglo, Trujillo, Colón.">
+    <title>ITDES</title>
+    <link rel="icon" href="assets/instituto.png">
+    <style>
+        :root {
+            --navy: #081d50;
+            --blue: #0b327a;
+            --gold: #ffb31b;
+            --ink: #18243b;
+            --muted: #64748b;
+            --bg: #f5f7fc
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+            color: var(--ink);
+            background: var(--bg)
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        button,
+        input {
+            font: inherit
+        }
+
+        button {
+            cursor: pointer
+        }
+
+        .container {
+            width: min(1160px, 92%);
+            margin: auto
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: #fffefef5;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e9edf4
+        }
+
+        .navinner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 76px;
+            gap: 16px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 850;
+            color: var(--navy)
+        }
+
+        .brand img {
+            width: 53px;
+            height: 60px;
+            object-fit: contain
+        }
+
+        .brand small {
+            display: block;
+            color: #66758c;
+            font-weight: 500;
+            font-size: 11px
+        }
+
+        .links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            font-size: 14px;
+            font-weight: 650
+        }
+
+        .links a:hover {
+            color: #bc7900
+        }
+
+        .pill {
+            background: var(--gold);
+            color: #071d4d;
+            border: 0;
+            border-radius: 30px;
+            padding: 12px 19px;
+            font-weight: 800;
+            display: inline-block
+        }
+
+        .hero {
+            background: radial-gradient(circle at 80% 15%, #244a9b 0%, transparent 42%), linear-gradient(125deg, #07163e, #092e75);
+            color: white;
+            overflow: hidden
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            align-items: center;
+            gap: 42px;
+            padding: 80px 0 88px
+        }
+
+        .kicker {
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid #ffffff48;
+            border-radius: 30px;
+            padding: 9px 14px;
+            color: #ffe3a1;
+            font-size: 13px;
+            letter-spacing: 1px;
+            font-weight: 750
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 5.5vw, 72px);
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin: 24px 0
+        }
+
+        .hero h1 span {
+            color: var(--gold)
+        }
+
+        .hero p {
+            color: #dbe5ff;
+            line-height: 1.8;
+            font-size: 17px;
+            max-width: 580px
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px
+        }
+
+        .outline {
+            border: 1px solid #ffffff80;
+            border-radius: 30px;
+            padding: 12px 20px;
+            font-weight: 750
+        }
+
+        .hero-logo {
+            background: #ffffff12;
+            border: 1px solid #ffffff20;
+            border-radius: 40px;
+            padding: 34px;
+            display: grid;
+            place-items: center;
+            box-shadow: 0 30px 100px #0003
+        }
+
+        .hero-logo img {
+            max-height: 350px;
+            width: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 12px #0003)
+        }
+
+        section {
+            padding: 80px 0
+        }
+
+        section h2 {
+            font-size: clamp(29px, 3.4vw, 43px);
+            margin: 10px 0 12px;
+            color: var(--navy);
+            letter-spacing: -1px
+        }
+
+        .section-intro {
+            max-width: 680px;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 30px
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: 850;
+            letter-spacing: 1.8px;
+            color: #a46a00
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: -36px;
+            position: relative
+        }
+
+        .stat {
+            background: white;
+            border-radius: 18px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 15px 50px #061d4b12
+        }
+
+        .stat b {
+            display: block;
+            font-size: 34px;
+            color: var(--blue)
+        }
+
+        .stat span {
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        .search-wrap {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 26px
+        }
+
+        .search-wrap input {
+            flex: 1;
+            min-width: 200px;
+            padding: 16px 20px;
+            border: 1px solid #dce4f0;
+            border-radius: 14px;
+            outline: none;
+            background: white
+        }
+
+        .search-wrap input:focus {
+            border-color: #3065ba
+        }
+
+        .filter {
+            border: 1px solid #dce4f0;
+            background: white;
+            border-radius: 12px;
+            padding: 12px 18px;
+            color: var(--blue);
+            font-weight: 750
+        }
+
+        .filter.active {
+            background: var(--navy);
+            color: white
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 22px
+        }
+
+        .program {
+            background: white;
+            border: 1px solid #e8edf5;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px #091b4710;
+            transition: transform .2s, box-shadow .2s
+        }
+
+        .program:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 40px #091b4720
+        }
+
+        .art {
+            height: 205px;
+            display: grid;
+            place-items: center;
+            padding: 20px;
+            background: linear-gradient(160deg, #fff, #f3f6fb)
+        }
+
+        .art img {
+            height: 80%;
+            width: 80%;
+            object-fit: contain;
+            mix-blend-mode: multiply
+        }
+
+        .program-body {
+            padding: 22px
+        }
+
+        .program h3 {
+            color: var(--navy);
+            font-size: 19px;
+            min-height: 47px;
+            margin: 10px 0
+        }
+
+        .program p {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.7;
+            min-height: 88px
+        }
+
+        .more {
+            border: 0;
+            background: none;
+            padding: 0;
+            color: #0b4ca2;
+            font-weight: 800;
+            font-size: 13px
+        }
+
+        .workshops {
+            background: #eaf0f9
+        }
+
+        .workshops .cards {
+            grid-template-columns: repeat(5, minmax(0, 1fr))
+        }
+
+        .workshops .art {
+            height: 165px
+        }
+
+        .workshops .program-body {
+            padding: 17px
+        }
+
+        .workshops .program h3 {
+            min-height: 25px
+        }
+
+        .workshops .program p {
+            min-height: 105px
+        }
+
+        .about {
+            background: white
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center
+        }
+
+        .about-grid p {
+            color: var(--muted);
+            line-height: 1.9
+        }
+
+        .about-mark {
+            background: #f4f7fd;
+            border-radius: 28px;
+            padding: 30px;
+            text-align: center
+        }
+
+        .about-mark img {
+            max-width: 230px;
+            width: 80%
+        }
+
+        .share {
+            background: linear-gradient(130deg, #061943, #103c89);
+            color: white;
+            text-align: center
+        }
+
+        .share h2 {
+            color: white
+        }
+
+        .share p {
+            color: #d9e4ff
+        }
+
+        .share input {
+            width: min(470px, 100%);
+            padding: 14px 16px;
+            border: 0;
+            border-radius: 12px;
+            margin: 10px
+        }
+
+        .share button {
+            border: 0;
+            background: var(--gold);
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-weight: 800
+        }
+
+        .qrbox {
+            margin: 25px auto 0;
+            background: white;
+            padding: 18px;
+            border-radius: 18px;
+            width: max-content;
+            max-width: 95%
+        }
+
+        .qrbox img {
+            display: block;
+            width: 220px;
+            height: 220px;
+            max-width: 100%
+        }
+
+        .share .hint {
+            font-size: 12px;
+            opacity: .8
+        }
+
+        footer {
+            background: #06122d;
+            color: #b8c5e3;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 13px
+        }
+
+        .dialog {
+            border: 0;
+            border-radius: 22px;
+            padding: 32px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 30px 90px #0005
+        }
+
+        .dialog::backdrop {
+            background: #07132cba
+        }
+
+        .dialog h3 {
+            font-size: 28px;
+            color: var(--navy)
+        }
+
+        .close {
+            float: right;
+            border: 0;
+            background: #eef2f9;
+            padding: 8px 12px;
+            border-radius: 10px
+        }
+
+        .location {
+            background: #eaf0f9
+        }
+
+        .location-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 15px 45px #091b4710
+        }
+
+        .location iframe {
+            width: 100%;
+            height: 410px;
+            border: 0;
+            display: block
+        }
+
+        .location-info {
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap
+        }
+
+        .location-info p {
+            margin: 4px 0;
+            color: var(--muted)
+        }
+
+        .map-link {
+            display: inline-block;
+            background: var(--navy);
+            color: #fff;
+            padding: 12px 18px;
+            border-radius: 30px;
+            font-weight: 700
+        }
+
+        @media(max-width:700px) {
+            .location iframe {
+                height: 320px
+            }
+        }
+
+        .hidden {
+            display: none !important
+        }
+
+        .empty {
+            color: var(--muted);
+            padding: 18px
+        }
+
+        .menu {
+            display: none
+        }
+
+        @media(max-width:1050px) {
+            .cards {
+                grid-template-columns: repeat(3, 1fr)
+            }
+
+            .workshops .cards {
+                grid-template-columns: repeat(3, 1fr)
+            }
+        }
+
+        @media(max-width:700px) {
+            .links {
+                display: none;
+                position: absolute;
+                top: 76px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                align-items: stretch;
+                padding: 20px;
+                box-shadow: 0 12px 20px #0002
+            }
+
+            .links.open {
+                display: flex
+            }
+
+            .menu {
+                display: block;
+                background: none;
+                border: 0;
+                font-size: 27px;
+                color: var(--navy)
+            }
+
+            .hero-inner {
+                grid-template-columns: 1fr;
+                padding: 55px 0 65px
+            }
+
+            .hero-logo {
+                max-width: 300px;
+                margin: auto
+            }
+
+            .hero h1 {
+                letter-spacing: -1px
+            }
+
+            .stats {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px
+            }
+
+            .stat {
+                padding: 16px 7px
+            }
+
+            .stat b {
+                font-size: 25px
+            }
+
+            .stat span {
+                font-size: 11px
+            }
+
+            .cards,
+            .workshops .cards {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px
+            }
+
+            .art,
+            .workshops .art {
+                height: 150px;
+                padding: 12px
+            }
+
+            .program-body,
+            .workshops .program-body {
+                padding: 14px
+            }
+
+            .program h3 {
+                font-size: 16px;
+                min-height: 40px
+            }
+
+            .program p,
+            .workshops .program p {
+                min-height: 110px;
+                font-size: 12px
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr
+            }
+
+            section {
+                padding: 60px 0
+            }
+        }
+
+        @media(max-width:390px) {
+
+            .cards,
+            .workshops .cards {
+                grid-template-columns: 1fr
+            }
+
+            .program p,
+            .workshops .program p {
+                min-height: auto
+            }
+
+            .program h3 {
+                min-height: auto
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="nav">
+        <div class="container navinner"><a class="brand" href="#inicio"><img src="assets/instituto.png"
+                    alt="Escudo ITDES"><span>ITDES<small>Espíritu del Siglo · Trujillo, Colón</small></span></a><button
+                class="menu" aria-label="Abrir menú" aria-expanded="false">☰</button>
+            <nav class="links" id="navlinks"><a href="#inicio">Inicio</a><a href="#carreras">Bachilleratos</a><a
+                    href="#talleres">Talleres</a><a href="#institucion">Institución</a></nav>
+        </div>
+    </header>
+    <main>
+        <div class="hero" id="inicio">
+            <div class="container hero-inner">
+                <div>
+                    <h1>Tu futuro <span>comienza aquí.</span></h1>
+                    <p>Bienvenidos al Instituto Técnico Departamental Espíritu del Siglo. Explora nuestras opciones de
+                        formación y descubre el camino que quieres construir.</p>
+                    <div class="actions"><a class="pill" href="#carreras">Explorar bachilleratos ↗</a><a class="outline"
+                            href="#talleres">Conocer talleres</a></div>
+                </div>
+                <div class="hero-logo"><img src="assets/instituto.png"
+                        alt="Escudo Instituto Técnico Departamental Espíritu del Siglo"></div>
+            </div>
+        </div>
+        <div class="container stats">
+            <div class="stat"><b>8</b><span>Opciones de bachillerato</span></div>
+            <div class="stat"><b>5</b><span>Talleres vocacionales</span></div>
+            <div class="stat"><b>1930</b><span>Año en el escudo institucional</span></div>
+        </div>
+        <section id="carreras">
+            <div class="container"><span class="eyebrow">Descubre tu vocación</span>
+                <h2>Nuestra oferta académica</h2>
+                <p class="section-intro">Conoce las áreas de formación que puedes explorar. Selecciona una tarjeta para
+                    descubrir más información.</p>
+                <div class="search-wrap"><input id="search" type="search" placeholder="Buscar una carrera o taller..."
+                        aria-label="Buscar carrera o taller"><button class="filter active"
+                        data-filter="all">Todos</button><button class="filter"
+                        data-filter="careers">Bachilleratos</button><button class="filter"
+                        data-filter="workshops">Talleres</button></div>
+                <div class="cards" id="career-cards">
+                    <article class="program"
+                        data-search="informática desarrolla habilidades en programación, redes, soporte técnico, robótica y diseño web.">
+                        <div class="art"><img src="assets/informatica1.png" loading="lazy" alt="Emblema de Informática">
+                        </div>
+                        <div class="program-body"><span class="eyebrow">Bachillerato Tecnico Profesional En</span>
+                            <h3>Informática</h3>
+                            <p>Desarrolla habilidades en programación, redes, soporte técnico, robótica y diseño web.
+                            </p><button class="more" data-title="Informática"
+                                data-desc="Desarrolla habilidades en programación, redes, soporte técnico, robótica y diseño web."
+                                data-kind="Bachillerato">Conocer más <span aria-hidden="true">↗</span></button>
+                        </div>
+                    </article>
+                    <article class="program"
+                        data-search="electricidad explora circuitos, instalaciones eléctricas, mediciones y seguridad técnica.">
+                        <div class="art"><img src="assets/electricidad1.png" loading="lazy"
+                                alt="Emblema de Electricidad"></div>
+                        <div class="program-body"><span class="eyebrow">Bachillerato Tecnico Profesional En</span>
+                            <h3>Electricidad</h3>
+                            <p>Explora circuitos, instalaciones eléctricas, mediciones y seguridad técnica.</p><button
+                                class="more" data-title="Electricidad"
+                                data-desc="Explora circuitos, instalaciones eléctricas, mediciones y seguridad técnica."
+                                data-kind="Bachillerato">Conocer más <span aria-hidden="true">↗</span></button>
+                        </div>
+                    </article>
+                    <article class="program"
+                        data-search="administración hotelera y turismo conoce la atención al cliente, la hospitalidad y la organización de servicios turísticos.">
+                        <div class="art"><img src="assets/adminhotelera1.png" loading="lazy"
+                                alt="Emblema de Administración Hotelera y Turismo"></div>
+                        <div class="program-body"><span class="eyebrow">Bachillerato Tecnico Profesional En</span>
+                            <h3>Administración Hotelera y Turismo</h3>
+                            <p>Conoce la atención al cliente, la hospitalidad y la organización de servicios turísticos.
+                            </p><button class="more" data-title="Administración Hotelera y Turismo"
+                                data-desc="Conoce la atención al cliente, la hospitalidad y la organización de servicios turísticos."
+                                data-kind="Bachillerato">Conocer más <span aria-hidden="true">↗</span></button>
+                        </div>
+                    </article>
+                    <article class="program"
+                        data-search="refrigeración y aire acondicionado aprende los fundamentos de climatización, mantenimiento y sistemas de refrigeración.">
+                        <div class="art"><img src="assets/refrigeracion1.png" loading="lazy"
+                                alt="Emblema de Refrigeración y Aire Acondicionado"></div>
+                        <div class="program-body"><span class="eyebrow">Bachillerato Tecnico Profesional En</span>
+                            <h3>Refrigeración y Aire Acondicionado</h3>
+                            <p>Aprende los fundamentos de climatización, mantenimiento y sistemas de refrigeración.</p>
+                            <button class="more" data-title="Refrigeración y Aire Acondicionado"
+                                data-desc="Aprende los fundamentos de climatización, mantenimiento y sistemas de refrigeración."
+                                data-kind="Bachillerato">Conocer más <span aria-hidden="true">↗</span></button>
+                        </div>
+                    </article>
+                    <article class="program"
+                        data-search="enfermería descubre los fundamentos del cuidado, la prevención y la atención en salud.">
+                        <div class="art"><img src="assets/enfermeria1.png" loading="lazy" alt="Emblema de Enfermería">
+                        </div>
+                        <div class="program-body"><span class="eyebrow">Bachillerato Tecnico Profesional En</span>
+                            <h3>Enfermería</h3>
+                            <p>Descubre los fundamentos del cuidado, la prevención y la atención en salud.</p><button
+                                class="more" data-title="Enfermería"
+                                data-desc="Descubre los fundamentos del cuidado, la prevención y la atención en salud."
+                                data-kind="Bachillerato">Conocer más <span aria-hidden="true">↗</span></button>
+                        </div>
+                    </article>
+                    <article class="program"
+                        data-search="marítima y portuaria conoce las actividades logísticas, marítimas y operativas del sector portuario.">
+                        <div class="art"><img src="assets/maritimo1.png" loading="lazy"
+                                alt="Emblema de Marítima y Portuaria"></div>
+                        <div class="program-body"><span class="eyebrow">Bachillerato Tecnico Profesional En</span>
+                            <h3>Marítima y Portuaria</h3>
+                            <p>Conoce las actividades logísticas, marítimas y operativas del sector portuario.</p>
+                            <button class="more" data-title="Marítima y Portuaria"
+                                data-desc="Conoce las actividades logísticas, marítimas y operativas del sector portuario."
+                                data-kind="Bachillerato">Conocer más <span aria-hidden="true">↗</span></button>
+                        </div>
+                    </article>
+                    <article class="program"
+                        data-search="contaduría y finanzas explora contabilidad, administración de recursos y gestión financiera.">
+                        <div class="art"><img src="assets/contaduria1.png" loading="lazy"
+                                alt="Emblema de Contaduría y Finanzas"></div>
+                        <div class="program-body"><span class="eyebrow">Bachillerato Tecnico Profesional En</span>
+                            <h3>Contaduría y Finanzas</h3>
+                            <p>Explora contabilidad, administración de recursos y gestión financiera.</p><button
+                                class="more" data-title="Contaduría y Finanzas"
+                                data-desc="Explora contabilidad, administración de recursos y gestión financiera."
+                                data-kind="Bachillerato">Conocer más <span aria-hidden="true">↗</span></button>
+                        </div>
+                    </article>
+                    <article class="program"
+                        data-search="ciencias y humanidades fortalece conocimientos científicos, comunicación y pensamiento crítico.">
+                        <div class="art"><img src="assets/cienciashumanidades1.png" loading="lazy"
+                                alt="Emblema de Ciencias y Humanidades"></div>
+                        <div class="program-body"><span class="eyebrow">Bachillerato En</span>
+                            <h3>Ciencias y Humanidades</h3>
+                            <p>Fortalece conocimientos científicos, comunicación y pensamiento crítico.</p><button
+                                class="more" data-title="Ciencias y Humanidades"
+                                data-desc="Fortalece conocimientos científicos, comunicación y pensamiento crítico."
+                                data-kind="Bachillerato">Conocer más <span aria-hidden="true">↗</span></button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="workshops" id="talleres">
+            <div class="container"><span class="eyebrow">Aprende haciendo</span>
+                <h2>Talleres vocacionales</h2>
+                <p class="section-intro">Explora habilidades técnicas y prácticas que impulsan la creatividad y el
+                    aprendizaje.</p>
+                <div class="cards" id="workshop-cards">
+                    <article class="program"
+                        data-search="maderas trabajos de carpintería, diseño y transformación de la madera.">
+                        <div class="art"><img src="assets/tallermaderas1.png" loading="lazy" alt="Emblema de Maderas"></div>
+                        <div class="program-body"><span class="eyebrow">Taller vocacional</span>
+                            <h3>Maderas</h3>
+                            <p>Trabajos de carpintería, diseño y transformación de la madera.</p><button class="more"
+                                data-title="Maderas"
+                                data-desc="Trabajos de carpintería, diseño y transformación de la madera."
+                                data-kind="Taller vocacional">Conocer más <span aria-hidden="true">↗</span></button>
+                        </div>
+                    </article>
+                    <article class="program"
+                        data-search="metales procesos básicos de fabricación y trabajo con materiales metálicos.">
+                        <div class="art"><img src="assets/tallermetales1.png" loading="lazy" alt="Emblema de Metales"></div>
+                        <div class="program-body"><span class="eyebrow">Taller vocacional</span>
+                            <h3>Metales</h3>
+                            <p>Procesos básicos de fabricación y trabajo con materiales metálicos.</p><button
+                                class="more" data-title="Metales"
+                                data-desc="Procesos básicos de fabricación y trabajo con materiales metálicos."
+                                data-kind="Taller vocacional">Conocer más <span aria-hidden="true">↗</span></button>
+                        </div>
+                    </article>
+                    <article class="program"
+                        data-search="agropecuaria actividades de producción agrícola, cuidado animal y sostenibilidad.">
+                        <div class="art"><img src="assets/talleragropecuaria.png" loading="lazy"
+                                alt="Emblema de Agropecuaria"></div>
+                        <div class="program-body"><span class="eyebrow">Taller vocacional</span>
+                            <h3>Agropecuaria</h3>
+                            <p>Actividades de producción agrícola, cuidado animal y sostenibilidad.</p><button
+                                class="more" data-title="Agropecuaria"
+                                data-desc="Actividades de producción agrícola, cuidado animal y sostenibilidad."
+                                data-kind="Taller vocacional">Conocer más <span aria-hidden="true">↗</span></button>
+                        </div>
+                    </article>
+                    <article class="program"
+                        data-search="electricidad prácticas introductorias de instalaciones y seguridad eléctrica.">
+                        <div class="art"><img src="assets/tallerelectricidad1.png" loading="lazy"
+                                alt="Emblema de Electricidad"></div>
+                        <div class="program-body"><span class="eyebrow">Taller vocacional</span>
+                            <h3>Electricidad</h3>
+                            <p>Prácticas introductorias de instalaciones y seguridad eléctrica.</p><button class="more"
+                                data-title="Electricidad"
+                                data-desc="Prácticas introductorias de instalaciones y seguridad eléctrica."
+                                data-kind="Taller vocacional">Conocer más <span aria-hidden="true">↗</span></button>
+                        </div>
+                    </article>
+                    <article class="program"
+                        data-search="hogar habilidades prácticas relacionadas con la vida cotidiana y el emprendimiento.">
+                        <div class="art"><img src="assets/tallerhogar1.png" loading="lazy" alt="Emblema de Hogar"></div>
+                        <div class="program-body"><span class="eyebrow">Taller vocacional</span>
+                            <h3>Hogar</h3>
+                            <p>Habilidades prácticas relacionadas con la vida cotidiana y el emprendimiento.</p><button
+                                class="more" data-title="Hogar"
+                                data-desc="Habilidades prácticas relacionadas con la vida cotidiana y el emprendimiento."
+                                data-kind="Taller vocacional">Conocer más <span aria-hidden="true">↗</span></button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="about" id="institucion">
+            <div class="container about-grid">
+                <div><span class="eyebrow">Nuestra identidad</span>
+                    <h2>Instituto Técnico Departamental Espíritu del Siglo</h2>
+                    <p>Somos una comunidad educativa de Trujillo, Colón, comprometida con acercar a los estudiantes a
+                        distintas oportunidades de formación académica, técnica y vocacional.</p>
+                    <p>Durante la Feria Vocacional y Expo Venta 2026, te invitamos a conocer nuestras áreas educativas,
+                        conversar con estudiantes y docentes y descubrir proyectos que reflejan el aprendizaje en
+                        acción.</p>
+                </div>
+                <div class="about-mark"><img src="assets/instituto.png" alt="Escudo ITDES">
+                    <p>Trujillo, Colón · Honduras</p>
+                </div>
+            </div>
+        </section>
+        <section class="location" id="ubicacion">
+            <div class="container"><span class="eyebrow">Encuéntranos</span>
+                <h2>¿Dónde estamos ubicados?</h2>
+                <p class="section-intro">Visítanos en Trujillo, departamento de Colón, Honduras. Explora la ubicación
+                    del Instituto Técnico Departamental Espíritu del Siglo en el mapa.</p>
+                <div class="location-card"><iframe
+                        title="Mapa de búsqueda del Instituto Técnico Departamental Espíritu del Siglo en Trujillo, Colón"
+                        src="https://www.google.com/maps?q=Instituto%20Tecnico%20Departamental%20Espiritu%20del%20Siglo%2C%20Trujillo%2C%20Colon%2C%20Honduras&amp;output=embed"
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+                    <div class="location-info">
+                        <div><strong>Instituto Técnico Departamental Espíritu del Siglo (ITDES)</strong>
+                            <p>Trujillo, Colón, Honduras · Ubicación mostrada mediante búsqueda en Google Maps</p>
+                        </div><a class="map-link"
+                            href="https://www.google.com/maps/place/Espiritu+del+siglo+I.T.D.E.S./@15.8784601,-86.0367354,11.39z/data=!4m6!3m5!1s0x8f6a3794e73086cd:0xcba3aac5fe9abee6!8m2!3d15.9120156!4d-85.9518502!16s%2Fg%2F1hhwhvwmt?entry=ttu&g_ep=EgoyMDI2MTAyNy4wIKXMDSoASAFQAw%3D%3D"
+                            target="_blank" rel="noopener noreferrer">Abrir en Google Maps ↗</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+       
+    </main>
+    <footer>
+        <div class="container">© 2026 Instituto Técnico Departamental Espíritu del Siglo · Promo BTPI 2026
+            · Trujillo, Colón</div>
+    </footer>
+    <dialog class="dialog" id="detail"><button class="close" id="close" aria-label="Cerrar">✕</button><span
+            class="eyebrow" id="detailkind"></span>
+        <h3 id="detailtitle"></h3>
+        <p id="detaildesc"></p>
+        <p>Visita nuestro stand durante la feria para conocer más sobre esta área y conversar con docentes y
+            estudiantes.</p>
+    </dialog>
+    <script>
+        const menu = document.querySelector('.menu'), nav = document.querySelector('.links'); menu.addEventListener('click', () => {nav.classList.toggle('open'); menu.setAttribute('aria-expanded', nav.classList.contains('open'))}); document.querySelectorAll('.links a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open'))); const search = document.querySelector('#search'), career = document.querySelector('#career-cards'), workshop = document.querySelector('#workshop-cards'); let filter = 'all'; function update() {const q = search.value.trim().toLocaleLowerCase('es'); career.closest('section').classList.toggle('hidden', filter === 'workshops'); workshop.closest('section').classList.toggle('hidden', filter === 'careers'); document.querySelectorAll('.program').forEach(el => el.classList.toggle('hidden', !el.dataset.search.includes(q)))} search.addEventListener('input', update); document.querySelectorAll('.filter').forEach(b => b.addEventListener('click', () => {filter = b.dataset.filter; document.querySelectorAll('.filter').forEach(x => x.classList.toggle('active', x === b)); update(); if (filter === 'workshops') document.querySelector('#talleres').scrollIntoView({behavior: 'smooth'})})); const dialog = document.querySelector('#detail'); document.querySelectorAll('.more').forEach(b => b.addEventListener('click', () => {document.querySelector('#detailkind').textContent = b.dataset.kind; document.querySelector('#detailtitle').textContent = b.dataset.title; document.querySelector('#detaildesc').textContent = b.dataset.desc; dialog.showModal()})); document.querySelector('#close').addEventListener('click', () => dialog.close()); dialog.addEventListener('click', e => {if (e.target === dialog) dialog.close()}); const publicUrl = /^https?:$/.test(location.protocol) ? location.href.split('#')[0] : ''; const qr = document.querySelector('#qr'); if (publicUrl) {qr.src = 'https://api.qrserver.com/v1/create-qr-code/?size=440x440&margin=12&data=' + encodeURIComponent(publicUrl); document.querySelector('#qrstatus').textContent = 'QR de ' + publicUrl} else {qr.style.display = 'none'; document.querySelector('#qrstatus').textContent = 'El QR aparecerá cuando publiques la web en GitHub Pages.'} document.querySelector('#copy').addEventListener('click', async () => {if (!publicUrl) {alert('Publica primero el sitio en GitHub Pages.'); return } try {await navigator.clipboard.writeText(publicUrl); alert('Enlace copiado')} catch (e) {prompt('Copia el enlace:', publicUrl)} });
+    </script>
+</body>
+
+</html>
